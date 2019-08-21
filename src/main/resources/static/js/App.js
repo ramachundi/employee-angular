@@ -1,0 +1,1 @@
+angular.module('employee', [ 'employee.controllers', 'employee.services' ]);

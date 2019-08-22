@@ -2,6 +2,7 @@ package com.example.employee.service;
 
 import java.util.List;
 
+import com.example.employee.converter.*;
 import com.example.employee.entity.User;
 import com.example.employee.repository.UserRepository;
 
@@ -19,6 +20,14 @@ public class UserServiceImpl implements UserService {
     @Override
 	public List<User> getAllUsers() {
 		return userRepository.findAll();
-	}
+    }
+    
+    //we get user if from rest controller , user gives
+
+    @Override
+    public User getUserById(Integer userId){
+        //return UserConverter.dtoToEntity(userRepository.getOne(userId));
+     return userRepository.getOne(userId);
+    }
 
 }

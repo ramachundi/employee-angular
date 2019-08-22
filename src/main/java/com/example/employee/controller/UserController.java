@@ -12,6 +12,7 @@ import com.example.employee.dto.UserDto;
 import com.example.employee.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +30,14 @@ public class UserController{
     @RequestMapping("/getAllUsers")
     public List<UserDto> getAllUsers(){
         return userService.getAllUsers().stream().map(UserConverter::entityToDto).collect(Collectors.toList());
+    }
+
+    //UserConverter.entityToDto(userRepository.getOne(userId));
+//services take from entities and controller takes from dto, so need to convert the entities to dto.
+    //get users by id
+    @RequestMapping("/getUser/{userId}")
+    public UserDto getUserById(@PathVariable Integer userId){
+        return UserConverter.entityToDto(userService.getUserById(userId));
     }
 
 }

@@ -1,18 +1,38 @@
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
-    <script src="js/App.js"></script>
-    <script src="js/UserController.js"></script>
-    <script src="js/UserService.js"></script>       
-    <body ng-app="employee">
-        <h1>Hello</h1>
-        <div ng-controller="UserController">
-        
-            <table ng-repeat="user in users">
-                <tr>
-                    <td>{{ user.userId }}</td>
-                    <td>{{ user.userName }}</td>
-                </tr>
-            </table>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+        <script src="js/App.js"></script>
+        <script src="js/UserController.js"></script>
+        <script src="js/UserService.js"></script>       
+        <body ng-app="employee">
+            <h1>Hello !</h1>
+            <div ng-controller="UserController">
+                <div class="row">
+                    <p>Displaying list of Users 
+                        <ul>
+                                {{allUsers | json}}
+                        </ul></p>
+                </div>
+                
+                <div class="row">
+                 <table ng-repeat="user in allUsers">
+                    <tr>
+                        <td>{{ user.userName }}</td>
+                    </tr>
+                </table>
+                
+            </div>
+
+        <div class="row">
+                <input ng-model="currentUserId">
+                <button ng-click="fetchUser()">Fetch</button>
+
+                <p>{{ UserById.userName }}</p>
+            </div>
+          
+
+           
+  
+            
         </div>
-    </body>
-</head>
+        </body>
+    </head>

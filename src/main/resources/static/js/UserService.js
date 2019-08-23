@@ -4,7 +4,7 @@ angular.module('employee.services', []).factory('UserService',
             //getuser by id
 
             service.getUserById = function(userId) {
-				//var url = "/getUser/{userId}".getUserByIdUrl + userId;
+				
 				return $http.get("/user/getUser/1");
 			}
 
